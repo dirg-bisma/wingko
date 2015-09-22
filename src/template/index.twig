@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% include 'slice/header.twig' %}
+<body>
+
+    {% include 'slice/menu.twig' %}
+
+    {% include 'slice/pageHeader.twig' %}
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div ng-app="blogApp" ng-controller="blogCtrl">
+                <div ng-repeat="x in names">
+                    <div class="post-preview">
+                        <a href="blog/detail/{[{ x.title | spaceless }]}.html">
+                            <h2 class="post-title">
+                                {[{ x.title }]}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {[{ x.sub_title }]}
+                            </h3>
+                        </a>
+                        <div ng-bind-html="x.content | limitTo:200"></div>
+                        <p class="post-meta">Posted by <a href="#">Me</a> on {[{ x.date_create }]}</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- Pager -->
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- Footer -->
+{% include 'slice/footer.twig' %}
+{% include 'slice/js.twig' %}
+<!-- angular -->
+
+
+<!-- app js -->
+<script src="/app/app.js"></script>
+
+</body>
+
+</html>

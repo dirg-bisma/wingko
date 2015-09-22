@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% include 'admin/header.twig' %}
+
+<body>
+
+{% include 'admin/menu.twig' %}
+<style type="text/css" scoped>
+    th,td{text-align: center;}
+</style>
+<br>
+<div class="container">
+    <div ng-app="adminApp" ng-controller="blogPagesCtrl">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Data Blog</h3>
+            </div>
+            <div class="panel-body">
+                <br>
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Date Create</th>
+                        <th>Title</th>
+                        <th>Sub Title</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="x in blog">
+                    <tr>
+                        <td>{[{ x.date_create }]}</td>
+                        <td>{[{ x.title }]}</td>
+                        <td>{[{ x.sub_title }]}</td>
+                        <td>
+                            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="panel-footer">
+                <div>
+                    <pagination total-items="totals" ng-model="currentPage" items-per-page="numPerPage" boundary-links="true"></pagination>
+                    <a href="/admin/blogform" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+{% include 'admin/js.twig' %}
+<script src="/app/admin.js"></script>
+</body>
+</html>

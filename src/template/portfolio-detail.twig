@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+{% include 'slice/header.twig' %}
+
+<body ng-app="blogApp">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        {% include 'slice/menu.twig' %}
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<div ng-controller="portfolioDetailCtrl">
+    <header class="intro-header" style="background-image: url('/assets/img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <div ng-repeat="x in names">
+                            <h2>{[{ x.name_portfolio}]}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <input id='title' name='title' type="hidden" value="{{ title }}">
+                    <div ng-repeat="x in names">
+                        <div style="text-align: justify" ng-bind-html="x.content_portfolio"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <hr>
+</div>
+
+<!-- Footer -->
+{% include 'slice/footer.twig' %}
+{% include 'slice/js.twig' %}
+<!-- angular -->
+<script src="/app/app.js"></script>
+
+
+</body>
+
+</html>

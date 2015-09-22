@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% include 'admin/header.twig' %}
+
+<body>
+
+{% include 'admin/menu.twig' %}
+<style type="text/css" scoped>
+    th,td{text-align: center;}
+</style>
+<br>
+<div class="container">
+    <div ng-app="adminApp" ng-controller="blogFormCtrl">
+        {% import "forms/blog.twig" as forms %}
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend>Form Blog</legend>
+                        {{ forms.input('title', 'title', '', 'text', '6') }}
+                        {{ forms.input('sub_title', 'title', '', 'text', '6') }}
+                        {{ forms.textarea('content', 'content', '', '8') }}
+                        {{ forms.button('simpan', 'simpan', 'button', 'Simpan', 'btn-primary') }}
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div><!-- /.container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+{% include 'admin/js.twig' %}
+<script src="/app/admin.js"></script>
+<script src="/packages/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content' , {
+        filebrowserBrowseUrl: '/gallery/browse',
+        filebrowserUploadUrl: '/gallery/upload'
+    });
+</script>
+</body>
+</html>

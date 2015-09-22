@@ -1,0 +1,11 @@
+{
+  "title" : "repo",
+  "description": "repo data",
+  "type": "object",
+  "properties": {
+    "name_repo" : { "type": "string" },
+    "repo_url" : { "type": "string" }
+  },
+  "required": ["name_repo", "repo_url"],
+  "additionalProperties": false
+}

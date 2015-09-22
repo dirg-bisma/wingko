@@ -1,0 +1,12 @@
+{
+  "title" : "blog",
+  "description": "blog data",
+  "type": "object",
+  "properties": {
+    "title" : { "type": "string" },
+    "content" : { "type": "string" },
+    "category" : { "type" : "string" }
+  },
+  "required": ["content", "title", "category"],
+  "additionalProperties": false
+}

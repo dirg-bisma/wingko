@@ -1,0 +1,14 @@
+{
+  "title" : "portfolio",
+  "description": "portfolio data",
+  "type": "object",
+  "properties": {
+    "name_portfolio" : { "type": "string" },
+    "content_portfolio" : { "type": "string" },
+    "tags" : { "type" : "string" },
+    "date_start" : { "type" : "string" },
+    "date_end" : { "type" : "string" }
+  },
+  "required": ["name_portfolio", "content_portfolio", "tags", "date_start"],
+  "additionalProperties": false
+}

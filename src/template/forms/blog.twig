@@ -1,0 +1,25 @@
+{% macro input(id, name, value, type, size, placeholder, required) %}
+<div class="form-group">
+    <label class="col-md-4 control-label" for="{{ id }}">Title</label>
+    <div class="col-md-{{ size }}">
+        <input id="{{ id }}" name="{{ name }}" type="text" placeholder="{{ placeholder }}"
+               class="form-control input-md" {{ required|e }}>
+    </div>
+</div>
+{% endmacro %}
+{% macro textarea(id, name, value, size) %}
+<div class="form-group">
+    <label class="col-md-4 control-label" for="{{ id }}">Content</label>
+    <div class="col-md-{{ size }}">
+        <textarea class="form-control" id="{{ id }}" name="{{ name }}">{{ value }}</textarea>
+    </div>
+</div>
+{% endmacro %}
+{% macro button(id, name, type, value, class) %}
+<div class="form-group">
+    <label class="col-md-4 control-label" for="{{ id }}"></label>
+    <div class="col-md-4">
+        <button class="btn {{ class }}" id="{{ id }}" name="{{ name }}" type="{{ type }}">{{ value }}</button>
+    </div>
+</div>
+{% endmacro %}
