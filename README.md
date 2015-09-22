@@ -1,4 +1,4 @@
-# blogSilex
+# Wingko simple blog use Silex
 Blog with silex use Oauth
 
 ## Feature
